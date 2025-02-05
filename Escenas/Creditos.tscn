@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfmgdkifvpn44"]
+
+[ext_resource type="Script" path="res://Script/Creditos.gd" id="1_xlwvt"]
+[ext_resource type="Texture2D" uid="uid://cgjlkxl3327ed" path="res://Imagenes/fondo_creditos.jpg" id="2_icl4o"]
+[ext_resource type="AudioStream" uid="uid://b7owwpeesd2ic" path="res://Sonidos/Sonido_Menu_Controles_Creditos.mp3" id="3_cqxkb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o78jk"]
+bg_color = Color(0.0980392, 0.301961, 0.6, 0.521569)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yq1pq"]
+bg_color = Color(0.2, 0.329412, 0.956863, 1)
+
+[node name="Creditos" type="Node2D"]
+script = ExtResource("1_xlwvt")
+
+[node name="Fondo_Creditos" type="TextureRect" parent="."]
+offset_right = 1154.0
+offset_bottom = 643.0
+texture = ExtResource("2_icl4o")
+expand_mode = 1
+
+[node name="Texto_Creditos" type="TextEdit" parent="."]
+offset_left = 225.0
+offset_top = 131.0
+offset_right = 881.0
+offset_bottom = 426.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_o78jk")
+text = "Realizado por Juan Pedro Moreno Serrato
+
+Imagenes sacadas de google
+
+Sonidos sacados de https://pixabay.com/es/"
+
+[node name="Boton_Atras_Creditos" type="Button" parent="."]
+offset_left = 14.0
+offset_top = 542.0
+offset_right = 220.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_yq1pq")
+text = "Atrás"
+
+[node name="Sonido_Creditos" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cqxkb")
+volume_db = -13.117
+autoplay = true
+
+[connection signal="pressed" from="Boton_Atras_Creditos" to="." method="_on_boton_atras_creditos_pressed"]
