@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://darihx7o0q5ug"]
+
+[ext_resource type="Script" path="res://Script/Juego.gd" id="1_neqow"]
+[ext_resource type="Texture2D" uid="uid://bmup6tsrmdrx5" path="res://Imagenes/fondo_juego.jpg" id="2_u6jkn"]
+[ext_resource type="AudioStream" uid="uid://b7owwpeesd2ic" path="res://Sonidos/Sonido_Menu_Controles_Creditos.mp3" id="3_wljp8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0a5x"]
+bg_color = Color(0.0980392, 0.301961, 0.6, 0.521569)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57j2w"]
+bg_color = Color(0.2, 0.329412, 0.956863, 1)
+
+[node name="Juego" type="Node2D"]
+script = ExtResource("1_neqow")
+
+[node name="Fondo_Juego" type="TextureRect" parent="."]
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 1153.0
+offset_bottom = 653.0
+texture = ExtResource("2_u6jkn")
+
+[node name="Texto_Juego" type="TextEdit" parent="."]
+offset_left = 425.0
+offset_top = 272.0
+offset_right = 646.0
+offset_bottom = 316.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_r0a5x")
+text = "PROXIMAMENTE"
+
+[node name="Boton_Atras_Juego" type="Button" parent="."]
+offset_left = 14.0
+offset_top = 542.0
+offset_right = 220.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_57j2w")
+text = "Atrás"
+
+[node name="Sonido_fondo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wljp8")
+volume_db = -13.117
+autoplay = true
+
+[connection signal="pressed" from="Boton_Atras_Juego" to="." method="_on_boton_atras_juego_pressed"]

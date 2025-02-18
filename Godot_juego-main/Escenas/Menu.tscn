@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://6y4nyya077qn"]
+
+[ext_resource type="Script" path="res://Script/Menu.gd" id="1_r0coi"]
+[ext_resource type="Texture2D" uid="uid://ditrislbofxoj" path="res://Imagenes/fondo_menu.jpg" id="2_sx6f3"]
+[ext_resource type="AudioStream" uid="uid://b7owwpeesd2ic" path="res://Sonidos/Sonido_Menu_Controles_Creditos.mp3" id="3_bo5bs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujcmj"]
+bg_color = Color(0.156863, 0.352941, 0.74902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54n5b"]
+bg_color = Color(0.156863, 0.352941, 0.74902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qs0r"]
+bg_color = Color(0.156863, 0.352941, 0.74902, 1)
+
+[node name="Menu Principal" type="Node2D"]
+script = ExtResource("1_r0coi")
+
+[node name="Fondo_menu" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 644.0
+texture = ExtResource("2_sx6f3")
+expand_mode = 1
+
+[node name="Boton_Jugar" type="Button" parent="."]
+offset_left = 269.0
+offset_top = 108.0
+offset_right = 855.0
+offset_bottom = 175.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ujcmj")
+text = "Jugar
+"
+
+[node name="Boton_Controles" type="Button" parent="."]
+offset_left = 269.0
+offset_top = 284.0
+offset_right = 856.0
+offset_bottom = 348.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_54n5b")
+text = "Controles
+"
+
+[node name="Boton_Creditos" type="Button" parent="."]
+offset_left = 269.0
+offset_top = 458.0
+offset_right = 856.0
+offset_bottom = 518.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_1qs0r")
+text = "Creditos
+"
+
+[node name="Sonido_fondo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bo5bs")
+volume_db = -13.117
+autoplay = true
+
+[connection signal="pressed" from="Boton_Jugar" to="." method="_on_boton_jugar_pressed"]
+[connection signal="pressed" from="Boton_Controles" to="." method="_on_boton_controles_pressed"]
+[connection signal="pressed" from="Boton_Creditos" to="." method="_on_boton_creditos_pressed"]
